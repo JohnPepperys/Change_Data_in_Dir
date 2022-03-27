@@ -75,7 +75,7 @@ class myChangeData
 
         private function myChangeDataInFile(string $fname) {
             // check input parameter
-            if (strlen($fname) > 1) {
+            if (strlen($fname) < 1) {
                 return false;
             }
 
@@ -99,9 +99,9 @@ class myChangeData
                     self::$log->Wr("Error write modify file $fname.");
                     return false;
                 }
-                $log->Wr(sprintf("file: %s, replace num: %d", $fname, $ct));
+                self::$log->Wr(sprintf("file: %s, replace num: %d", $fname, $ct));
                 self::$filechanged++;
-                self::$changes_in_file += ct;
+                self::$changes_in_file += $ct;
             }
             return true;
         }
